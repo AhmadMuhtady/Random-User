@@ -1,55 +1,176 @@
-.spinner {
-  --frame: 1s;
+/* Reset and base styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
+
+body {
+	background-color: white;
+	color: white;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	overflow-x: hidden;
+}
+
+/* Main container */
+.container {
+	position: relative;
+	max-width: 672px; /* max-w-2xl equivalent */
+	margin: 0 auto;
+	margin-top: 48px; /* mt-12 equivalent */
+	border: 1px solid white;
+	border-radius: 8px;
+	padding: 16px;
+}
+
+/* Header styles */
+.header {
+	text-align: center;
+}
+
+.title {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 16px;
+}
+
+/* Button styles */
+.generate-btn {
+	position: relative;
+	background-color: black;
+	color: white;
+	padding: 8px 16px;
+	border-radius: 4px;
+	width: 100%;
+	margin: 16px 0;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.generate-btn:hover {
+	background-color: #333;
+}
+
+/* User display styles */
+.user-container {
+	margin-top: 24px;
+}
+
+.user-content {
+	display: flex;
+	justify-content: space-between;
+}
+
+.user-main {
+	display: flex;
+}
+
+.user-image {
+	width: 192px; /* w-48 equivalent */
+	height: 192px; /* h-48 equivalent */
+	border-radius: 50%;
+	margin-right: 32px; /* mr-8 equivalent */
+}
+
+.user-info {
+	display: flex;
+	flex-direction: column;
+	gap: 12px; /* space-y-3 equivalent */
+}
+
+.user-info p {
+	font-size: 20px; /* text-xl equivalent */
+}
+
+.user-info span {
+	font-weight: bold;
+}
+
+/* Spinner styles */
+.spinner {
+	--frame: 1s;
+}
+
 .spinner,
 .spinner::before,
 .spinner::after {
-  border: 5px solid white;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-radius: 50%;
+	border: 5px solid white;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+	border-radius: 50%;
 }
-.spinner {
-  margin: auto;
-  font-size: 4em;
-  position: absolute;
-  top: 4px;
-  left: 140px;
 
-  width: 0.5em;
-  height: 0.5em;
-  -webkit-animation: anim-spinner var(--frame) ease infinite;
-  animation: anim-spinner var(--frame) ease infinite;
+.spinner {
+	margin: auto;
+	font-size: 4em;
+	position: absolute;
+	top: 4px;
+	left: 140px;
+	width: 0.5em;
+	height: 0.5em;
+	-webkit-animation: anim-spinner var(--frame) ease infinite;
+	animation: anim-spinner var(--frame) ease infinite;
 }
+
 .spinner::before,
 .spinner::after {
-  content: '';
-  position: absolute;
+	content: '';
+	position: absolute;
 }
+
 .spinner::before {
-  inset: 1px;
-  -webkit-animation: anim-spinner calc(var(--frame) * 4.3) ease-in infinite;
-  animation: anim-spinner calc(var(--frame) * 4.3) ease-in infinite;
+	inset: 1px;
+	-webkit-animation: anim-spinner calc(var(--frame) * 4.3) ease-in infinite;
+	animation: anim-spinner calc(var(--frame) * 4.3) ease-in infinite;
 }
+
 .spinner::after {
-  inset: 7px;
-  -webkit-animation: anim-spinner calc(var(--frame) * 1.51) ease-out infinite;
-  animation: anim-spinner calc(var(--frame) * 1.51) ease-out infinite;
+	inset: 7px;
+	-webkit-animation: anim-spinner calc(var(--frame) * 1.51) ease-out infinite;
+	animation: anim-spinner calc(var(--frame) * 1.51) ease-out infinite;
+}
+
+.hidden {
+	display: none;
 }
 
 @-webkit-keyframes anim-spinner {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
 }
+
 @keyframes anim-spinner {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+	.container {
+		margin: 16px;
+		margin-top: 24px;
+	}
+
+	.user-main {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.user-image {
+		margin-right: 0;
+		margin-bottom: 16px;
+	}
+
+	.user-info {
+		text-align: center;
+	}
 }
